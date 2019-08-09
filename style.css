@@ -1,0 +1,146 @@
+body {
+  font-family: "Georgia", serif;
+  background-color: #222222;
+  color: #EEEADD;
+
+  font-size: 18px;
+}
+
+button {
+  width: 250px;
+  height: 35px;
+
+  clear: both;
+
+  border: none;
+  border-radius: 5px;
+
+  margin: 3px;
+  padding: 5px 0;
+
+  background-color: #2ecc71;
+  color: white;
+
+  font-size: 14px;
+  cursor: pointer;
+}
+
+h1 {
+  letter-spacing: -3px;
+}
+
+input[type=text] {
+  border: none;
+  background-color: inherit;
+  color: #E21B5A;
+  font-size: inherit;
+  font-family: inherit;
+  width: 80%;
+  text-align: center;
+}
+
+ol {
+  padding: 0;
+  margin-bottom: 20px;
+  list-style-position: inside;
+}
+
+ol li {
+  margin-bottom: 4px;
+}
+
+footer {
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.letter {
+  width: 25%;
+  font-size: 140px;
+}
+
+.new-game {
+  background-color: #e74c3c;
+}
+
+/* LAYOUT */
+#game-container {
+  margin-top: 20px;
+}
+
+.wrapper {
+  margin: auto;
+  text-align: center;
+}
+
+.letter {
+  float: left;
+  width: 20%;
+}
+
+.card {
+  text-align: left;
+  width: 60%;
+  margin-left: 25%;
+  overflow-y: auto;
+}
+
+.card ol {
+  float: left;
+  width: 70%;
+}
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (max-width : 481px) {
+
+  .wrapper {
+    width: 95%;
+  }
+
+  #game-container {
+    text-align: center;
+  }
+
+  .card {
+    text-align: center;
+    margin: auto;
+    width: 90%;
+  }
+
+  .letter, .card ol {
+    float: none;
+  }
+
+  .card ol {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+
+}
+
+@media only screen and (min-width : 482px) and (max-width : 1024px) {
+
+  .wrapper {
+    width: 95%;
+  }
+
+  .card {
+    text-align: center;
+    margin: auto;
+    width: 80%;
+  }
+
+}
+
+@media only screen and (min-width : 1024px) {
+
+  .wrapper {
+    width: 75%;
+  }
+
+}
+
