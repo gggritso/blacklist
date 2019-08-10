@@ -1,10 +1,33 @@
 import { CATEGORIES } from "./categories";
 import { LETTERS } from "./letters";
 
-var CARDS_PER_ROUND = 4,
+const CARDS_PER_ROUND = 4,
   PICKED = [];
 
-function encodeGameURL(cards) {
+$(() => {
+  // Is this already a game? Read hash and check!
+  var cards = decodeGameURL(window.location.hash.slice(1));
+  if (!cards) {
+    generateNewGame();
+  } else {
+    for (var i = 0; i < cards.length; i += 1) {
+      appendCard(i, cards[i]);
+    }
+  }
+
+  // Event Listeners
+  $("body").on("click", ".reveal-card", event => {
+    var cardID = $(event.target).data("card-id");
+    $(".card[data-card-id=" + cardID + "]").show();
+    $(event.target).hide();
+  });
+
+  $("body").on("click", ".new-game", () => {
+    generateNewGame();
+  });
+});
+
+const encodeGameURL = cards => {
   var rets = [],
     enc = [];
 
@@ -21,9 +44,9 @@ function encodeGameURL(cards) {
   }
 
   return rets.join("|");
-}
+};
 
-function decodeGameURL(url) {
+const decodeGameURL = url => {
   var cards = [],
     letter = "";
 
@@ -48,9 +71,9 @@ function decodeGameURL(url) {
   }
 
   return cards;
-}
+};
 
-function appendCard(cardIndex, card) {
+const appendCard = (cardIndex, card) => {
   var s = "";
   s +=
     '<div class="card" data-card-id="' +
@@ -70,9 +93,9 @@ function appendCard(cardIndex, card) {
     '" class="reveal-card">Reveal Card</button><br>';
 
   $("#game-container").append(s);
-}
+};
 
-function generateNewCard() {
+const generateNewCard = () => {
   var card = [],
     r = Math.floor(Math.random() * LETTERS.length),
     letter = LETTERS[r],
@@ -93,12 +116,13 @@ function generateNewCard() {
   }
 
   return card;
-}
+};
 
-function generateNewGame() {
+const generateNewGame = () => {
   $("#game-container").html("");
   window.location.hash = "";
 
+  let card;
   var cards = [];
 
   for (var i = 0; i < CARDS_PER_ROUND; i += 1) {
@@ -109,27 +133,4 @@ function generateNewGame() {
 
   var gameURL = window.location.origin + "/#" + encodeGameURL(cards);
   $("#game-url").val(gameURL);
-}
-
-$(function() {
-  // Is this already a game? Read hash and check!
-  var cards = decodeGameURL(window.location.hash.slice(1));
-  if (!cards) {
-    generateNewGame();
-  } else {
-    for (var i = 0; i < cards.length; i += 1) {
-      appendCard(i, cards[i]);
-    }
-  }
-
-  // Event Listeners
-  $("body").on("click", ".reveal-card", function(event) {
-    var cardID = $(this).data("card-id");
-    $(".card[data-card-id=" + cardID + "]").show();
-    $(this).hide();
-  });
-
-  $("body").on("click", ".new-game", function() {
-    generateNewGame();
-  });
-});
+};
