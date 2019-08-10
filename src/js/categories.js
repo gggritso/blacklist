@@ -1,4 +1,4 @@
-var CATEGORIES = [
+export const CATEGORIES = [
   "Baby foods",
   "Famous duos and trios",
   "Things found in a desk",

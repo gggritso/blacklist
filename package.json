@@ -1,0 +1,36 @@
+{
+  "private": true,
+  "name": "scootegaries",
+  "version": "0.0.1",
+  "description": "It’s a category based quick-thinking word game!",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --open",
+    "watch": "webpack --watch",
+    "build": "webpack --mode='production'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gggritso/scootegaries.git"
+  },
+  "keywords": [
+    "word",
+    "game",
+    "categories"
+  ],
+  "author": "George Gritsouk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gggritso/scootegaries/issues"
+  },
+  "homepage": "https://github.com/gggritso/scootegaries#readme"
+}

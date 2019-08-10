@@ -1,3 +1,6 @@
+import { CATEGORIES } from "./categories";
+import { LETTERS } from "./letters";
+
 var CARDS_PER_ROUND = 4,
   PICKED = [];
 

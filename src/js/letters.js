@@ -1,4 +1,4 @@
-var LETTERS = [
+export const LETTERS = [
   "A",
   "B",
   "C",
