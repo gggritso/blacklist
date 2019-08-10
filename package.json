@@ -5,9 +5,11 @@
   "description": "It’s a category based quick-thinking word game!",
   "dependencies": {},
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "eslint": "^6.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "prettier": "1.18.2",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.8.0"
@@ -16,6 +18,7 @@
     "start": "webpack-dev-server --open",
     "watch": "webpack --watch",
     "build": "webpack --mode='production'",
+    "lint": "eslint src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
