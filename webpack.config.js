@@ -14,6 +14,17 @@ module.exports = {
       template: "src/index.ejs"
     })
   ],
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      }
+    ]
+  },
   devServer: {
     contentBase: "./dist"
   }

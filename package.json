@@ -3,12 +3,18 @@
   "name": "scootegaries",
   "version": "0.0.1",
   "description": "It’s a category based quick-thinking word game!",
-  "dependencies": {},
+  "dependencies": {
+    "babel-loader": "^8.0.6",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
     "eslint": "^6.1.0",
-    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
     "html-webpack-plugin": "^3.2.0",
     "prettier": "1.18.2",
     "webpack": "^4.39.1",
