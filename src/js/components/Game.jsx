@@ -16,7 +16,9 @@ export class Game extends Component {
     this.nextRound = this.nextRound.bind(this);
     this.finishRound = this.finishRound.bind(this);
 
-    this.box = new GameBox(window.location.hash.slice(1));
+    const encodedGame = window.location.hash.slice(1);
+
+    this.box = new GameBox(encodedGame);
 
     this.timer = new Timer();
     this.timer.onTick(this.updateCountdown);
@@ -26,6 +28,7 @@ export class Game extends Component {
       url: this.box.URL,
       cards: this.box.cards,
       round: null,
+      youAreGameMaster: !encodedGame,
       gameIsOn: false
     };
   }
@@ -36,7 +39,10 @@ export class Game extends Component {
 
     return (
       <div className="game">
-        <h1 className="game__name">Scootegaries</h1>
+        <h1 className="game__name">
+          {this.state.youAreGameMaster ? "[Master] " : " "}
+          Scootegaries
+        </h1>
         <h2 className="game__countdown">{this.state.countdown}</h2>
 
         <input
