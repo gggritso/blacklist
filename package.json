@@ -5,9 +5,11 @@
   "description": "It’s a category based quick-thinking word game!",
   "dependencies": {
     "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "style-loader": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -16,8 +18,10 @@
     "eslint": "^6.1.0",
     "eslint-plugin-react": "^7.14.3",
     "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.13.0",
     "prettier": "1.18.2",
-    "webpack": "^4.39.1",
+    "sass-loader": "^8.0.0",
+    "webpack": "^4.41.2",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.8.0"
   },
