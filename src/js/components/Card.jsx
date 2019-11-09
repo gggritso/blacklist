@@ -2,11 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export const Card = ({ letter, categories, isVisible }) => (
-  <div className="card" style={{ display: isVisible ? "block" : "none" }}>
-    <span className="letter">{letter}</span>
-    <ol>
+  <div className={`card ${isVisible ? "" : "card--hidden"}`}>
+    <span className="card__letter">{letter}</span>
+    <ol className="card__categories">
       {categories.map(category => (
-        <li key={category}>{category}</li>
+        <li key={category} className="card__category">
+          {category}
+        </li>
       ))}
     </ol>
   </div>

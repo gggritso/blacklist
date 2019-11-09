@@ -21,18 +21,26 @@ export class Game extends Component {
 
   render() {
     return (
-      <div className="wrapper">
-        <h1>Scootegaries</h1>
-        <input type="text" id="game-url" value={this.state.url} readOnly />
+      <div className="game">
+        <h1 className="game__name">Scootegaries</h1>
+        <input
+          type="text"
+          value={this.state.url}
+          readOnly
+          className="game__url"
+        />
 
         {this.state.cards.indexOf(this.state.currentCard) !==
           this.state.cards.length - 1 && (
-          <button className="reveal-card" onClick={this.revealNextCard}>
+          <button
+            className="game__next-card-button"
+            onClick={this.revealNextCard}
+          >
             Reveal Next Card
           </button>
         )}
 
-        <div id="game-container">
+        <div className="game__container">
           {this.state.cards.map((card, i) => (
             <Fragment key={card.letter}>
               <Card {...card} isVisible={card === this.state.currentCard} />
