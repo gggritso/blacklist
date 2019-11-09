@@ -1,21 +1,21 @@
 import React, { Component, Fragment } from "react";
 
 import { Card } from "./Card.jsx";
-import { GameKeeper } from "../GameKeeper";
+import { GameBox } from "../GameBox";
 
 export class Game extends Component {
   constructor(props) {
     super(props);
 
-    this.keeper = new GameKeeper(window.location.hash.slice(1));
+    this.box = new GameBox(window.location.hash.slice(1));
 
     this.revealNextCard = this.revealNextCard.bind(this);
     this.setCurrentCard = this.setCurrentCard.bind(this);
 
     this.state = {
-      url: this.keeper.URL,
-      cards: this.keeper.cards,
-      currentCard: this.keeper.cards[0]
+      url: this.box.URL,
+      cards: this.box.cards,
+      currentCard: this.box.cards[0]
     };
   }
 

@@ -7,7 +7,7 @@ const PICKED_CATEGORIES = [];
 const CARDS_PER_GAME = 4;
 const LETTERS_PER_CARD = 12;
 
-export class GameKeeper {
+export class GameBox {
   constructor(encodedCards) {
     if (encodedCards) {
       this.cards = this.decodeGameURL(encodedCards);
