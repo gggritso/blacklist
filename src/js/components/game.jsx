@@ -5,7 +5,8 @@ import { Card } from "./card.jsx";
 import { CATEGORIES } from "../categories";
 import { LETTERS } from "../letters";
 
-const PICKED = [];
+const PICKED_LETTERS = [];
+const PICKED_CATEGORIES = [];
 
 export class Game extends Component {
   constructor(props) {
@@ -80,8 +81,15 @@ export class Game extends Component {
       isVisible: false
     };
 
-    let r = Math.floor(Math.random() * LETTERS.length),
+    let r = Math.floor(Math.random() * LETTERS.length);
+    let letter = LETTERS[r];
+
+    while (PICKED_LETTERS.indexOf(letter) !== -1) {
+      r = Math.floor(Math.random() * LETTERS.length);
       letter = LETTERS[r];
+    }
+
+    PICKED_LETTERS.push(letter);
 
     let category = "";
 
@@ -90,12 +98,12 @@ export class Game extends Component {
     for (let i = 0; i < 12; i += 1) {
       r = Math.floor(Math.random() * CATEGORIES.length);
       category = CATEGORIES[r];
-      while (PICKED.indexOf(category) !== -1) {
+      while (PICKED_CATEGORIES.indexOf(category) !== -1) {
         r = Math.floor(Math.random() * CATEGORIES.length);
         category = CATEGORIES[r];
       }
       card.categories.push(category);
-      PICKED.push(category);
+      PICKED_CATEGORIES.push(category);
     }
 
     return card;
