@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 
-import { Card } from "./card.jsx";
+import { Card } from "./Card.jsx";
 import { GameKeeper } from "../GameKeeper";
 
 export class Game extends Component {
