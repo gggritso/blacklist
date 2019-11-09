@@ -1,13 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export const Card = ({ letter, categories, isActive, isLocked }) => (
+export const Card = ({ categories, isActive, isLocked }) => (
   <div
     className={`card ${isActive ? "card--active" : "card--hidden"} ${
       isLocked ? "card--locked" : ""
     }`}
   >
-    <span className="card__letter">{letter}</span>
     <ol className="card__categories">
       {categories.map(category => (
         <li key={category} className="card__category">
@@ -26,7 +25,6 @@ export const Card = ({ letter, categories, isActive, isLocked }) => (
 );
 
 Card.propTypes = {
-  letter: PropTypes.string.isRequired,
   categories: PropTypes.arrayOf(PropTypes.string).isRequired,
   isActive: PropTypes.bool,
   isLocked: PropTypes.bool

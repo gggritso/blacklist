@@ -5,7 +5,7 @@ import { GameBox } from "../GameBox";
 import { Timer } from "../Timer";
 
 const ROUND_COUNT = 4;
-const ROUND_DURATION = 3;
+const ROUND_DURATION = 0.1;
 
 export class Game extends Component {
   constructor(props) {
@@ -53,10 +53,16 @@ export class Game extends Component {
         />
 
         {!isLastRound && (
-          <button className="game__next-card-button" onClick={this.nextRound}>
+          <button
+            className="game__next-round-button"
+            onClick={this.nextRound}
+            disabled={this.state.gameIsOn}
+          >
             Next Round
           </button>
         )}
+
+        {currentCard && this.state.gameIsOn && <h3>{currentCard.letter}</h3>}
 
         <div className="game__container">
           {this.state.cards.map((card, i) => (
