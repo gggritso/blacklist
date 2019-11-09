@@ -125,6 +125,7 @@ export const CATEGORIES = [
   "People in uniform",
   "Things you plug in",
   "Things that grow",
+  "Things that are stinky",
   "Ways to say hi and bye",
   "Heroes",
   "Things in a sci-fi movie",
