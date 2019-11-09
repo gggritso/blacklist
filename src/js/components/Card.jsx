@@ -7,7 +7,10 @@ export const Card = ({ letter, categories, isVisible }) => (
     <ol className="card__categories">
       {categories.map(category => (
         <li key={category} className="card__category">
-          {category}
+          <label className="card__category-label">
+            {category}
+            <input type="text" className="card__category-input" />
+          </label>
         </li>
       ))}
     </ol>
