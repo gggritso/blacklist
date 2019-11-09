@@ -1,4 +1,4 @@
-export const CATEGORIES = [
+[
   "Baby foods",
   "Famous duos and trios",
   "Things found in a desk",
@@ -295,4 +295,4 @@ export const CATEGORIES = [
   "Things that grow",
   "Companies",
   "Booze"
-];
+]

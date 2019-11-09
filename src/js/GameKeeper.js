@@ -1,5 +1,5 @@
-import { CATEGORIES } from "./categories";
-import { LETTERS } from "./letters";
+import CATEGORIES from "./CATEGORIES";
+import LETTERS from "./LETTERS";
 
 const PICKED_LETTERS = [];
 const PICKED_CATEGORIES = [];

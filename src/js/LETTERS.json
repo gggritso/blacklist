@@ -1,4 +1,4 @@
-export const LETTERS = [
+[
   "A",
   "B",
   "C",
@@ -18,4 +18,4 @@ export const LETTERS = [
   "R",
   "S",
   "T"
-];
+]
