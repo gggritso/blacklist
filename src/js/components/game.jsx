@@ -12,7 +12,8 @@ export class Game extends Component {
     super(props);
 
     this.generateCards = this.generateCards.bind(this);
-    this.revealCard = this.revealCard.bind(this);
+    this.revealNextCard = this.revealNextCard.bind(this);
+    this.setCurrentCard = this.setCurrentCard.bind(this);
 
     let cards = this.decodeGameURL(window.location.hash.slice(1));
 
@@ -20,6 +21,7 @@ export class Game extends Component {
 
     this.state = {
       url: window.location.origin + "/#" + this.encodeGameURL(cards),
+      currentCard: cards[0],
       cards
     };
   }
@@ -30,19 +32,17 @@ export class Game extends Component {
         <h1>Scootegaries</h1>
         <input type="text" id="game-url" value={this.state.url} readOnly />
 
+        {this.state.cards.indexOf(this.state.currentCard) !==
+          this.state.cards.length - 1 && (
+          <button className="reveal-card" onClick={this.revealNextCard}>
+            Reveal Next Card
+          </button>
+        )}
+
         <div id="game-container">
           {this.state.cards.map((card, i) => (
-            <Fragment>
-              <Card {...card} />
-              {!card.isVisible && (
-                <button
-                  className="reveal-card"
-                  onClick={() => this.revealCard(card)}
-                >
-                  Reveal Card
-                </button>
-              )}
-              <br />
+            <Fragment key={card.letter}>
+              <Card {...card} isVisible={card === this.state.currentCard} />
             </Fragment>
           ))}
         </div>
@@ -50,17 +50,16 @@ export class Game extends Component {
     );
   }
 
-  revealCard(cardToReveal) {
+  revealNextCard() {
+    this.setCurrentCard(
+      this.state.cards[this.state.cards.indexOf(this.state.currentCard) + 1]
+    );
+  }
+
+  setCurrentCard(card) {
     this.setState({
       ...this.state,
-      cards: this.state.cards.map(card => {
-        return card === cardToReveal
-          ? {
-              ...card,
-              isVisible: true
-            }
-          : card;
-      })
+      currentCard: card
     });
   }
 
