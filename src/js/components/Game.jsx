@@ -57,7 +57,8 @@ export class Game extends Component {
             <Fragment key={card.letter}>
               <Card
                 {...card}
-                isVisible={card === currentCard && this.state.gameIsOn}
+                isActive={card === currentCard && this.state.gameIsOn}
+                isLocked={card === currentCard && !this.state.gameIsOn}
               />
             </Fragment>
           ))}

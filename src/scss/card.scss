@@ -1,5 +1,12 @@
 .card {
-  &--hidden {
+  display: none;
+
+  &--active {
+    display: block;
+  }
+
+  &--locked {
+    display: block;
     opacity: 0.5;
   }
 
