@@ -11,16 +11,20 @@
   }
 
   &__categories {
-
+    padding: 10px;
+    padding-left: 30px;
   }
 
   &__category {
-    &-label {
+    margin-bottom: 20px;
 
+    &-label {
+      display: flex;
     }
 
     &-input {
-
+      width: 100%;
+      margin-top: 8px;
     }
   }
 }

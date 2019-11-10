@@ -5,7 +5,7 @@ import { GameBox } from "../GameBox";
 import { Timer } from "../Timer";
 
 const ROUND_COUNT = 4;
-const ROUND_DURATION = 0.1;
+const ROUND_DURATION = 3;
 
 export class Game extends Component {
   constructor(props) {
@@ -36,33 +36,40 @@ export class Game extends Component {
   render() {
     const currentCard = this.state.cards[this.state.round - 1];
     const isLastRound = this.state.round === ROUND_COUNT;
+    const isFirstRound = !this.state.round;
 
     return (
       <div className="game">
-        <h1 className="game__name">
-          {this.state.youAreGameMaster ? "[Master] " : " "}
-          Scootegaries
+        <h1 className="game__round-and-button">
+          {this.state.round ? `Round ${this.state.round}` : "Get ready!"}
+
+          {this.state.gameIsOn && (
+            <span className="game__countdown">{this.state.countdown}</span>
+          )}
+
+          {!isLastRound && !this.state.gameIsOn && (
+            <button
+              className="game__next-round-button"
+              onClick={this.nextRound}
+              disabled={this.state.gameIsOn}
+            >
+              {isFirstRound ? "Start" : "Next"} →
+            </button>
+          )}
         </h1>
-        <h2 className="game__countdown">{this.state.countdown}</h2>
 
-        <input
-          type="text"
-          value={this.state.url}
-          readOnly
-          className="game__url"
-        />
+        <div className="game__url">
+          <input
+            type="text"
+            value={this.state.url}
+            readOnly
+            className="game__url-input"
+          />
+        </div>
 
-        {!isLastRound && (
-          <button
-            className="game__next-round-button"
-            onClick={this.nextRound}
-            disabled={this.state.gameIsOn}
-          >
-            Next Round
-          </button>
+        {currentCard && this.state.gameIsOn && (
+          <span className="game__letter">{currentCard.letter}</span>
         )}
-
-        {currentCard && this.state.gameIsOn && <h3>{currentCard.letter}</h3>}
 
         <div className="game__container">
           {this.state.cards.map((card, i) => (

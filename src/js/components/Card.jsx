@@ -10,8 +10,9 @@ export const Card = ({ categories, isActive, isLocked }) => (
     <ol className="card__categories">
       {categories.map(category => (
         <li key={category} className="card__category">
-          <label className="card__category-label">
+          <label className="card__category-label-wrapper">
             {category}
+            <br />
             <input
               type="text"
               className="card__category-input"
