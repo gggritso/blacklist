@@ -39,39 +39,39 @@ export class Game extends Component {
     const isFirstRound = !this.state.round;
 
     return (
-      <div className="game">
-        <h1 className="game__round-and-button">
-          {this.state.round ? `Round ${this.state.round}` : "Get ready!"}
+      <div className="h-screen flex flex-col p-1 overflow-scroll">
+        <h1 className="flex flex-grow-0 items-center my-2 text-4xl">
+          <span className="mr-auto">
+            {this.state.round ? `Round ${this.state.round}` : "Get ready!"}
+          </span>
 
           {this.state.gameIsOn && (
-            <span className="game__countdown">{this.state.countdown}</span>
+            <span className="font-mono">{this.state.countdown}</span>
           )}
 
           {!isLastRound && !this.state.gameIsOn && (
-            <button
-              className="game__next-round-button"
-              onClick={this.nextRound}
-              disabled={this.state.gameIsOn}
-            >
+            <button onClick={this.nextRound} disabled={this.state.gameIsOn}>
               {isFirstRound ? "Start" : "Next"} →
             </button>
           )}
         </h1>
 
-        <div className="game__url">
+        <div className="w-full py-1">
           <input
             type="text"
             value={this.state.url}
             readOnly
-            className="game__url-input"
+            className="block w-full border"
           />
         </div>
 
         {currentCard && this.state.gameIsOn && (
-          <span className="game__letter">{currentCard.letter}</span>
+          <span className="w-full text-4xl text-white bg-black p-2 mb-8 text-center">
+            {currentCard.letter}
+          </span>
         )}
 
-        <div className="game__container">
+        <div>
           {this.state.cards.map((card, i) => (
             <Fragment key={card.letter}>
               <Card
