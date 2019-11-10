@@ -10,7 +10,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Scootegaries",
+      title: "Blacklist",
       template: "src/index.ejs"
     })
   ],

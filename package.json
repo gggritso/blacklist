@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "scootegaries",
+  "name": "blacklist",
   "version": "0.0.1",
   "description": "It’s a category based quick-thinking word game!",
   "dependencies": {
@@ -34,7 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gggritso/scootegaries.git"
+    "url": "git+https://github.com/gggritso/blacklist.git"
   },
   "keywords": [
     "word",
@@ -42,9 +42,5 @@
     "categories"
   ],
   "author": "George Gritsouk",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gggritso/scootegaries/issues"
-  },
-  "homepage": "https://github.com/gggritso/scootegaries#readme"
+  "license": "ISC"
 }
