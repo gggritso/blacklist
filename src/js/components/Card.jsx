@@ -6,15 +6,15 @@ export const Card = ({ categories, isActive, isLocked }) => {
 
   return (
     <div className={`card ${isHidden && "hidden"} ${isLocked && "opacity-50"}`}>
-      <ol className="p-1 pl-10 list-decimal">
+      <ol className="p-8 pl-16 list-decimal">
         {categories.map(category => (
-          <li key={category} className="mb-2">
+          <li key={category} className="mb-16">
             <label>
               {category}
               <br />
               <input
                 type="text"
-                className="w-full mt-1 border"
+                className="w-full mt-8 border"
                 readOnly={isLocked}
               />
             </label>

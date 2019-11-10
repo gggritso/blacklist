@@ -39,8 +39,8 @@ export class Game extends Component {
     const isFirstRound = !this.state.round;
 
     return (
-      <div className="h-screen flex flex-col p-1 overflow-scroll">
-        <h1 className="flex flex-grow-0 items-center my-2 text-4xl">
+      <div className="h-screen flex flex-col p-8 overflow-scroll">
+        <h1 className="flex flex-grow-0 items-center my-16 text-40">
           <span className="mr-auto">
             {this.state.round ? `Round ${this.state.round}` : "Get ready!"}
           </span>
@@ -56,7 +56,7 @@ export class Game extends Component {
           )}
         </h1>
 
-        <div className="w-full py-1">
+        <div className="w-full py-8">
           <input
             type="text"
             value={this.state.url}
@@ -66,7 +66,7 @@ export class Game extends Component {
         </div>
 
         {currentCard && this.state.gameIsOn && (
-          <span className="w-full text-4xl text-white bg-black p-2 mb-8 text-center">
+          <span className="w-full text-40 text-white bg-black p-16 mb-8 text-center">
             {currentCard.letter}
           </span>
         )}
