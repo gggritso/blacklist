@@ -1,3 +1,5 @@
+import accurateInterval from "accurate-interval";
+
 export class Timer {
   constructor() {
     this.elapsed = 0;
@@ -13,34 +15,39 @@ export class Timer {
   }
 
   start(duration) {
-    this.duration = Math.round(duration * 60);
+    this.duration = Math.round(duration * 60) + 1;
 
-    this.interval = window.setInterval(() => {
-      this.elapsed += 1;
-      this.tickCallback();
+    this.interval = accurateInterval(
+      () => {
+        this.elapsed += 1;
+        this.tickCallback();
 
-      if (this.elapsed === this.duration) {
-        this.finishCallback();
-        this.stop();
-      }
-    }, 1000);
+        if (this.elapsed === this.duration) {
+          this.finishCallback();
+          this.stop();
+        }
+      },
+      1000,
+      { immediate: true }
+    );
   }
 
   stop() {
-    window.clearInterval(this.interval);
+    this.interval.clear();
   }
 
   reset() {
     this.elapsed = 0;
-    window.clearInterval(this.interval);
   }
 
   getTime() {
     const seconds = this.duration - this.elapsed;
-    return `${Math.floor(seconds / 60)}:${this.padSeconds(seconds % 60)}`;
-  }
 
-  padSeconds(seconds) {
-    return seconds < 10 ? `0${seconds}` : seconds;
+    const timerMinutes = Math.floor(seconds / 60);
+    const timerSeconds = seconds % 60;
+
+    return `${timerMinutes}:${
+      timerSeconds < 10 ? `0${timerSeconds}` : timerSeconds
+    }`;
   }
 }

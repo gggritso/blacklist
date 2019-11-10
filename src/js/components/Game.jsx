@@ -15,6 +15,7 @@ export class Game extends Component {
 
     this.nextRound = this.nextRound.bind(this);
     this.finishRound = this.finishRound.bind(this);
+    this.copyURLToClipboard = this.copyURLToClipboard.bind(this);
 
     const encodedGame = window.location.hash.slice(1);
 
@@ -56,13 +57,16 @@ export class Game extends Component {
           )}
         </h1>
 
-        <div className="w-full py-8">
+        <div className="w-full flex py-8">
           <input
             type="text"
             value={this.state.url}
             readOnly
-            className="block w-full border"
+            className="block flex-1 border"
           />
+          <button onClick={this.copyURLToClipboard} className="ml-8">
+            Copy URL
+          </button>
         </div>
 
         {currentCard && this.state.gameIsOn && (
@@ -86,6 +90,12 @@ export class Game extends Component {
     );
   }
 
+  copyURLToClipboard() {
+    navigator.clipboard.writeText(this.state.url).then(() => {
+      alert("Copied!");
+    });
+  }
+
   updateCountdown() {
     this.setState({
       countdown: this.timer.getTime()
@@ -95,13 +105,12 @@ export class Game extends Component {
   nextRound() {
     const nextRound = this.state.round ? this.state.round + 1 : 1;
 
-    this.timer.start(ROUND_DURATION);
-
     this.setState({
       round: nextRound,
-      countdown: this.timer.getTime(),
       gameIsOn: true
     });
+
+    this.timer.start(ROUND_DURATION);
   }
 
   finishRound() {
