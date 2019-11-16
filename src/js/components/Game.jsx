@@ -40,18 +40,24 @@ export class Game extends Component {
     const isFirstRound = !this.state.round;
 
     return (
-      <div className="h-screen flex flex-col p-8 overflow-scroll">
-        <h1 className="flex flex-grow-0 items-center my-16 text-40">
+      <div className="p-8 font-mono">
+        <h1 className="flex flex-grow-0 items-center my-16 text-20">
           <span className="mr-auto">
-            {this.state.round ? `Round ${this.state.round}` : "Get ready!"}
+            Blacklist {this.state.round && `Round ${this.state.round}`}
           </span>
 
           {this.state.gameIsOn && (
-            <span className="font-mono">{this.state.countdown}</span>
+            <span className="fixed top-0 right-0 p-2 bg-white text-16">
+              {this.state.countdown}
+            </span>
           )}
 
           {!isLastRound && !this.state.gameIsOn && (
-            <button onClick={this.nextRound} disabled={this.state.gameIsOn}>
+            <button
+              onClick={this.nextRound}
+              disabled={this.state.gameIsOn}
+              className="p-2 bg-black text-white"
+            >
               {isFirstRound ? "Start" : "Next"} →
             </button>
           )}
@@ -70,7 +76,7 @@ export class Game extends Component {
         </div>
 
         {currentCard && this.state.gameIsOn && (
-          <span className="w-full text-40 text-white bg-black p-16 mb-8 text-center">
+          <span className="block w-full text-30 text-white bg-black p-16 my-8 text-center">
             {currentCard.letter}
           </span>
         )}
