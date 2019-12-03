@@ -12,12 +12,15 @@ export const Card = ({ categories, letter, isActive, isLocked }) => {
             <label>
               {index + 1}. {category}
               <br />
-              <input
-                type="text"
-                placeholder={letter}
-                className="w-full mt-8 border"
-                readOnly={isLocked}
-              />
+              <div className="inline-flex items-center mt-8">
+                <input
+                  type="text"
+                  placeholder={letter}
+                  className="w-full border"
+                  readOnly={isLocked}
+                />
+                {isLocked && <input type="checkbox" className="ml-4" />}
+              </div>
             </label>
           </li>
         ))}
