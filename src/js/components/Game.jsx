@@ -49,7 +49,7 @@ export class Game extends Component {
           </span>
 
           {this.state.gameIsOn && (
-            <span className="fixed top-0 right-0 p-2 bg-white text-16">
+            <span className="fixed bottom-0 right-0 p-2 bg-white text-16">
               {this.state.countdown}
             </span>
           )}
