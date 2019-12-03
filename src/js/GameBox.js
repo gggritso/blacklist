@@ -76,10 +76,10 @@ export class GameBox {
         enc.push(CATEGORIES.indexOf(currentCard.categories[i]).toString(16)); //eslint-disable-line no-magic-numbers
       }
 
-      rets.push(currentCard.letter + enc.join("+"));
+      rets.push(currentCard.letter + enc.join("-"));
     }
 
-    return rets.join("|");
+    return rets.join("_");
   }
 
   decodeGameURL(url) {
@@ -89,11 +89,11 @@ export class GameBox {
       return null;
     }
 
-    const hashes = url.split("|");
+    const hashes = url.split("_");
 
     for (let y = 0; y < hashes.length; y += 1) {
       const letter = hashes[y].slice(0, 1),
-        categoryNumbers = hashes[y].slice(1).split("+"),
+        categoryNumbers = hashes[y].slice(1).split("-"),
         categories = [];
 
       for (let i = 0; i < categoryNumbers.length; i += 1) {
