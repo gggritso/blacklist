@@ -4,6 +4,8 @@ import { Card } from "./Card.jsx";
 import { GameBox } from "../GameBox";
 import { Timer } from "../Timer";
 
+import copyToClipboard from "copy-to-clipboard";
+
 const ROUND_COUNT = 4;
 const ROUND_DURATION = 3;
 
@@ -97,9 +99,7 @@ export class Game extends Component {
   }
 
   copyURLToClipboard() {
-    navigator.clipboard.writeText(this.state.url).then(() => {
-      alert("Copied!");
-    });
+    copyToClipboard(this.state.url);
   }
 
   updateCountdown() {
